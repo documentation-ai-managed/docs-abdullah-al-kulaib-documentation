@@ -1,0 +1,130 @@
+---
+title: Project Management
+description: Learn how to create, organize, and manage documentation projects effectively
+---
+
+## Overview of Project Management
+
+Effective project management is the foundation of successful documentation. Abdullah Al Kulaib Documentation provides robust tools to create, organize, and maintain your documentation projects. Whether you're working on software documentation, product guides, or internal knowledge bases, our platform offers the features you need to keep everything structured and accessible.
+
+## Creating New Projects
+
+Start your documentation journey by creating a new project. This serves as the container for all your related documents and team members.
+
+<Steps>
+  <Step title="Access Project Dashboard" icon="home">
+    Log in to your Abdullah Al Kulaib account and navigate to the dashboard.
+  </Step>
+  <Step title="Click Create Project" icon="plus">
+    Locate the "Create New Project" button in the top navigation.
+    <Callout kind="info">You can create up to 10 projects on the free plan.</Callout>
+  </Step>
+  <Step title="Configure Project Settings" icon="settings">
+    Enter project name, description, and select visibility settings.
+    ````bash
+    # Example project creation via CLI
+    abdullah-kulaib create-project \
+      --name "API Documentation" \
+      --description "Comprehensive API reference and guides" \
+      --visibility public
+    ````
+  </Step>
+  <Step title="Invite Team Members" icon="users">
+    Add collaborators with appropriate permissions.
+  </Step>
+</Steps>
+
+## Organizing Project Structure
+
+A well-organized project structure makes it easier for your team to find and contribute to documentation.
+
+<Tabs>
+  <Tab title="Folder Structure" icon="folder">
+    Use folders to categorize your documents by topic or feature.
+    ````bash
+    # Create folder structure
+    abdullah-kulaib create-folder --project-id 123 --name "API Reference" --parent-folder ""
+    abdullah-kulaib create-folder --project-id 123 --name "Authentication" --parent-folder "API Reference"
+    ````
+  </Tab>
+  <Tab title="Tags and Labels" icon="tag">
+    Apply tags to documents for better searchability and filtering.
+    ````bash
+    # Add tags to documents
+    abdullah-kulaib tag-document --document-id 456 --tags api,authentication,security
+    ````
+  </Tab>
+</Tabs>
+
+## Version Control and History
+
+Track changes and maintain different versions of your documentation.
+
+<Expandable title="Version Management" default-open="true">
+  <Expandable title="Creating Versions" default-open="false">
+    Create snapshots of your documentation at key milestones.
+  </Expandable>
+  <Expandable title="Comparing Versions" default-open="false">
+    Use the diff tool to see changes between versions.
+  </Expandable>
+</Expandable>
+
+## Project Analytics
+
+Monitor how your documentation is being used and accessed.
+
+<Columns cols={2}>
+  <Card title="View Statistics" icon="bar-chart" href="#analytics">
+    Track page views, popular content, and user engagement.
+  </Card>
+  <Card title="Search Insights" icon="search" href="#search-analytics">
+    Understand what users are searching for in your docs.
+  </Card>
+</Columns>
+
+## Best Practices
+
+<Callout kind="tip">Use consistent naming conventions for projects and documents to improve discoverability.</Callout>
+
+<Callout kind="success">Regularly review and update your project structure as your documentation grows.</Callout>
+
+## Troubleshooting Common Issues
+
+<Expandable title="Common Project Management Problems" default-open="false">
+  <Expandable title="Permission Errors" default-open="false">
+    If team members can't access projects, check their role assignments in project settings.
+  </Expandable>
+  <Expandable title="Missing Documents" default-open="false">
+    Use the search function or check folder permissions if documents appear missing.
+  </Expandable>
+</Expandable>
+
+## API Integration
+
+Manage projects programmatically using our REST API.
+
+<CodeGroup tabs="JavaScript,cURL">
+  ```javascript
+  // Create a new project
+  const newProject = {
+    name: "New Documentation Project",
+    description: "Project for new product launch",
+    visibility: "private"
+  };
+  
+  const response = await fetch('/api/projects', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(newProject)
+  });
+  
+  const project = await response.json();
+  console.log('Created project:', project.id);
+  ```
+  ```bash
+  # Create project via cURL
+  curl -X POST /api/projects \
+    -H "Content-Type: application/json" \
+    -d '{"name":"New Project","description":"Description","visibility":"private"}'
+  ```
+</CodeGroup>

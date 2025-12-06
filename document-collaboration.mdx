@@ -1,0 +1,137 @@
+---
+title: Document Collaboration
+description: Discover tools and features for collaborative documentation editing and review
+---
+
+## Introduction to Collaborative Editing
+
+Collaboration is key to creating comprehensive and accurate documentation. Abdullah Al Kulaib Documentation provides real-time editing capabilities, review workflows, and team communication tools to ensure your documentation reflects the collective knowledge of your team. Whether you're working on technical specs, user guides, or internal processes, our collaboration features make it easy to work together effectively.
+
+## Real-Time Editing
+
+Edit documents simultaneously with your team members and see changes in real-time.
+
+<Steps>
+  <Step title="Open Document for Editing" icon="edit">
+    Navigate to any document and click the "Edit" button to enter collaborative mode.
+  </Step>
+  <Step title="Invite Collaborators" icon="user-plus">
+    Share the editing session with team members via email or direct link.
+  </Step>
+  <Step title="Save Changes" icon="save">
+    All changes are automatically saved and versioned.
+    ````bash
+    # Start collaborative editing session
+    abdullah-kulaib edit-document --document-id 456 --collaborative true
+    ````
+  </Step>
+</Steps>
+
+## Review and Approval Workflows
+
+Implement structured review processes to ensure documentation quality.
+
+<Tabs>
+  <Tab title="Peer Review" icon="users">
+    Submit documents for peer review before publishing.
+    <Callout kind="info">Reviewers can add comments and suggest changes directly in the document.</Callout>
+  </Tab>
+  <Tab title="Approval Chains" icon="check-circle">
+    Set up multi-level approval workflows for critical documents.
+  </Tab>
+</Tabs>
+
+## Comments and Discussions
+
+Add contextual comments and start discussions on specific parts of documents.
+
+<Expandable title="Comment Features" default-open="true">
+  <Expandable title="Inline Comments" default-open="false">
+    Highlight text and add comments that appear as annotations.
+  </Expandable>
+  <Expandable title="Threaded Discussions" default-open="false">
+    Create discussion threads for broader conversations.
+  </Expandable>
+</Expandable>
+
+## Version Control and Conflicts
+
+Handle concurrent edits and merge conflicts gracefully.
+
+<Columns cols={2}>
+  <Card title="Conflict Resolution" icon="git-merge" href="#conflict-resolution">
+    Automatic conflict detection and manual resolution tools.
+  </Card>
+  <Card title="Change History" icon="history" href="#change-history">
+    View detailed history of all edits and changes.
+  </Card>
+</Columns>
+
+## Notifications and Alerts
+
+Stay informed about document changes and review requests.
+
+<Callout kind="success">Enable email notifications to never miss important updates.</Callout>
+
+<Callout kind="tip">Customize notification preferences to match your workflow.</Callout>
+
+## Integration with Communication Tools
+
+Connect your documentation with Slack, Microsoft Teams, and other collaboration platforms.
+
+<Expandable title="Available Integrations" default-open="false">
+  <Expandable title="Slack Integration" default-open="false">
+    Get notified in Slack channels about document updates and reviews.
+  </Expandable>
+  <Expandable title="Microsoft Teams" default-open="false">
+    Share documents and collaborate directly within Teams.
+  </Expandable>
+</Expandable>
+
+## Best Practices for Collaboration
+
+<Steps>
+  <Step title="Establish Clear Guidelines" icon="book-open">
+    Define editing guidelines and review processes for your team.
+  </Step>
+  <Step title="Use Descriptive Commit Messages" icon="message-square">
+    When saving changes, provide clear descriptions of modifications.
+  </Step>
+  <Step title="Regular Check-ins" icon="calendar">
+    Schedule regular reviews to ensure documentation stays current.
+  </Step>
+</Steps>
+
+## API for Collaboration
+
+Programmatically manage collaborative features.
+
+<CodeGroup tabs="JavaScript,Python">
+  ```javascript
+  // Add a comment to a document
+  const comment = {
+    documentId: 456,
+    content: "This section needs clarification",
+    position: { start: 100, end: 150 }
+  };
+  
+  await fetch('/api/documents/456/comments', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(comment)
+  });
+  ```
+  ```python
+  # Add comment via Python
+  import requests
+  
+  comment_data = {
+    'documentId': 456,
+    'content': 'This section needs clarification',
+    'position': {'start': 100, 'end': 150}
+  }
+  
+  response = requests.post('/api/documents/456/comments', json=comment_data)
+  print('Comment added:', response.json())
+  ```
+</CodeGroup>

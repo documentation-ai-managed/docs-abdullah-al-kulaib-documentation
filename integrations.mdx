@@ -1,0 +1,148 @@
+---
+title: Integrations
+description: Connect Abdullah Al Kulaib Documentation with your favorite tools and platforms
+---
+
+## Overview of Integrations
+
+Abdullah Al Kulaib Documentation integrates seamlessly with popular development, communication, and productivity tools. These integrations enhance your workflow by connecting documentation processes with your existing toolset. From version control systems to project management platforms, our integrations ensure your documentation stays synchronized with your development lifecycle.
+
+## Version Control Integration
+
+Connect your documentation with Git repositories for version control and automated publishing.
+
+<Steps>
+  <Step title="Connect Repository" icon="git-branch">
+    Link your GitHub, GitLab, or Bitbucket repository to a documentation project.
+    ````bash
+    # Connect GitHub repository
+    abdullah-kulaib connect-repo \
+      --project-id 123 \
+      --provider github \
+      --repo "organization/docs-repo" \
+      --branch main
+    ````
+  </Step>
+  <Step title="Configure Auto-sync" icon="refresh-cw">
+    Set up automatic synchronization between repository changes and documentation updates.
+  </Step>
+  <Step title="Publish on Merge" icon="upload">
+    Automatically publish documentation when pull requests are merged.
+  </Step>
+</Steps>
+
+## Communication Tools
+
+Integrate with team communication platforms for notifications and collaboration.
+
+<Tabs>
+  <Tab title="Slack" icon="message-square">
+    Receive notifications about documentation changes in Slack channels.
+    <Callout kind="info">Set up webhooks to post updates directly to your team's Slack workspace.</Callout>
+  </Tab>
+  <Tab title="Microsoft Teams" icon="users">
+    Share documentation links and collaborate within Microsoft Teams.
+  </Tab>
+</Tabs>
+
+## Project Management
+
+Sync documentation with project management tools like Jira, Trello, and Asana.
+
+<Expandable title="Supported PM Tools" default-open="true">
+  <Expandable title="Jira Integration" default-open="false">
+    Link documentation to Jira issues and epics for better traceability.
+  </Expandable>
+  <Expandable title="Trello Boards" default-open="false">
+    Create cards from documentation tasks and track progress.
+  </Expandable>
+</Expandable>
+
+## Development Tools
+
+Connect with IDEs, CI/CD pipelines, and code quality tools.
+
+<Columns cols={3}>
+  <Card title="VS Code Extension" icon="code" href="#vscode-extension">
+    Edit documentation directly from Visual Studio Code.
+  </Card>
+  <Card title="CI/CD Pipelines" icon="settings" href="#ci-cd">
+    Automate documentation updates in your build process.
+  </Card>
+  <Card title="Code Quality" icon="check-circle" href="#code-quality">
+    Integrate with tools like SonarQube for documentation quality checks.
+  </Card>
+</Columns>
+
+## API and Webhook Integrations
+
+Build custom integrations using our REST API and webhook system.
+
+<Callout kind="success">Use webhooks to trigger actions in external systems when documentation changes.</Callout>
+
+<Callout kind="tip">Our API supports OAuth 2.0 for secure integrations.</Callout>
+
+## Third-Party Apps
+
+Extend functionality with apps from our marketplace.
+
+<Expandable title="Popular Apps" default-open="false">
+  <Expandable title="Diagram Generators" default-open="false">
+    Apps for creating flowcharts and diagrams within documents.
+  </Expandable>
+  <Expandable title="Translation Tools" default-open="false">
+    Automatic translation of documentation into multiple languages.
+  </Expandable>
+</Expandable>
+
+## Setting Up Integrations
+
+<Steps>
+  <Step title="Access Integration Settings" icon="settings">
+    Navigate to project settings and select the "Integrations" tab.
+  </Step>
+  <Step title="Choose Integration" icon="plug">
+    Select the tool or platform you want to connect.
+  </Step>
+  <Step title="Authorize Access" icon="key">
+    Grant necessary permissions and complete the authorization flow.
+  </Step>
+  <Step title="Configure Settings" icon="sliders">
+    Customize the integration behavior for your workflow.
+  </Step>
+</Steps>
+
+## API Examples
+
+<CodeGroup tabs="JavaScript,cURL">
+  ```javascript
+  // Set up a Slack webhook integration
+  const integration = {
+    type: 'slack',
+    config: {
+      webhookUrl: 'https://hooks.slack.com/services/...',
+      channel: '#docs-updates',
+      events: ['document.updated', 'project.published']
+    }
+  };
+  
+  await fetch('/api/projects/123/integrations', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(integration)
+  });
+  ```
+  ```bash
+  # Create GitHub integration via cURL
+  curl -X POST /api/projects/123/integrations \
+    -H "Content-Type: application/json" \
+    -d '{
+      "type": "github",
+      "config": {
+        "repository": "org/docs",
+        "branch": "main",
+        "autoSync": true
+      }
+    }'
+  ```
+</CodeGroup>

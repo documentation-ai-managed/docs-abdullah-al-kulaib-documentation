@@ -1,0 +1,97 @@
+---
+title: Introduction
+description: Overview of Abdullah Al Kulaib Documentation and its core capabilities
+---
+
+## Welcome to Abdullah Al Kulaib Documentation
+
+Abdullah Al Kulaib Documentation provides a comprehensive platform for organizing and managing project documentation. This default documentation space allows you to structure your docs efficiently and collaborate with your team. Get started with our intuitive tools and features designed for seamless documentation workflows.
+
+<Columns cols={3}>
+  <Card title="Project Management" icon="folder" href="#project-management">
+    Organize and manage your documentation projects with ease.
+  </Card>
+  <Card title="Team Collaboration" icon="users" href="#document-collaboration">
+    Work together on documentation with real-time collaboration features.
+  </Card>
+  <Card title="Integrations" icon="plug" href="#integrations">
+    Connect with your favorite tools and platforms.
+  </Card>
+</Columns>
+
+## Key Features
+
+Abdullah Al Kulaib Documentation offers powerful features to streamline your documentation process. From project creation to version control, our platform ensures your docs are always up-to-date and accessible.
+
+<Steps>
+  <Step title="Create Your First Project" icon="plus">
+    Start by creating a new project to organize your documentation.
+    ````bash
+    # Create a new documentation project
+    abdullah-kulaib create-project --name "My Project" --description "Project documentation"
+    ````
+  </Step>
+  <Step title="Add Team Members" icon="user-plus">
+    Invite your team members to collaborate on the documentation.
+    ````bash
+    # Add a team member to the project
+    abdullah-kulaib add-member --project-id 123 --email "team@example.com" --role editor
+    ````
+  </Step>
+  <Step title="Import Existing Docs" icon="upload">
+    Import your existing documentation files to get started quickly.
+    ````bash
+    # Import documents from a directory
+    abdullah-kulaib import-docs --project-id 123 --source "/path/to/docs" --format markdown
+    ````
+  </Step>
+</Steps>
+
+## Getting Started
+
+<Tabs>
+  <Tab title="Quick Setup" icon="zap">
+    <Steps>
+      <Step title="Sign Up">Create your account at abdullah-kulaib.com</Step>
+      <Step title="Create Project">Set up your first documentation project</Step>
+      <Step title="Invite Team">Add team members and start collaborating</Step>
+    </Steps>
+  </Tab>
+  <Tab title="Advanced Setup" icon="settings">
+    For advanced users, configure integrations and custom workflows.
+    <Callout kind="info">Advanced setup requires API access. Contact support for assistance.</Callout>
+  </Tab>
+</Tabs>
+
+## API Overview
+
+Our RESTful API allows you to programmatically manage your documentation projects and integrate with other tools.
+
+<CodeGroup tabs="JavaScript,Python">
+  ```javascript
+  // Get project details
+  const response = await fetch('/api/projects/123');
+  const project = await response.json();
+  console.log(project.name);
+  ```
+  ```python
+  # Get project details
+  import requests
+  response = requests.get('/api/projects/123')
+  project = response.json()
+  print(project['name'])
+  ```
+</CodeGroup>
+
+## Support and Resources
+
+<Expandable title="Frequently Asked Questions" default-open="false">
+  <Expandable title="How do I reset my password?" default-open="false">
+    Click on the "Forgot Password" link on the login page and follow the instructions.
+  </Expandable>
+  <Expandable title="Can I export my documentation?" default-open="false">
+    Yes, you can export your projects in various formats including PDF, HTML, and Markdown.
+  </Expandable>
+</Expandable>
+
+<Callout kind="tip">For additional help, visit our support center or contact our team at support@abdullah-kulaib.com.</Callout>
